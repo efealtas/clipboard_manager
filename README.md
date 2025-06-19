@@ -1,6 +1,6 @@
 # Clipboard Manager
 
-An offline, cross-platform clipboard manager desktop app built with Flutter Desktop. The app automatically logs copied text snippets, allows searching and tagging, and saves data locally using SQLite. It features a clean and responsive UI with dark and light themes that persist across app launches.
+An offline, cross-platform clipboard manager desktop app built with Flutter Desktop. The app automatically logs copied text snippets, allows searching , and saves data locally using SQLite. It features a clean and responsive UI with dark and light themes that persist across app launches.
 
 ---
 
@@ -14,14 +14,14 @@ An offline, cross-platform clipboard manager desktop app built with Flutter Desk
 ## Screenshots
 
 ### Dark Mode
-![dark mode](screenshots/darkMode.png)
+![dark mode](screenshots/darkmode.png)
 
 ### Light Mode
 
-![light mode](screenshots/lightMode.png)
+![light mode](screenshots/lightmode.png)
 
 ### Search Feature
-![search](screenshots/searchFeature.png)
+![search](screenshots/search.png)
 
 ### How It Works
 
