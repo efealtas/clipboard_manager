@@ -3,11 +3,39 @@ import 'clipboard_database.dart';
 import 'clipboard_monitor.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
+import 'package:shared_preferences/shared_preferences.dart';
 
-final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.system);
+final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.light);
 
-void main() {
+Future<void> loadThemeMode() async {
+  final prefs = await SharedPreferences.getInstance();
+  final themeString = prefs.getString('theme_mode') ?? 'light';
+  switch (themeString) {
+    case 'dark':
+      themeNotifier.value = ThemeMode.dark;
+      break;
+    case 'light':
+      themeNotifier.value = ThemeMode.light;
+      break;
+    case 'system':
+      themeNotifier.value = ThemeMode.system;
+      break;
+    default:
+      themeNotifier.value = ThemeMode.light;
+  }
+}
+
+Future<void> saveThemeMode(ThemeMode mode) async {
+  final prefs = await SharedPreferences.getInstance();
+  String themeString = 'light';
+  if (mode == ThemeMode.dark) themeString = 'dark';
+  if (mode == ThemeMode.system) themeString = 'system';
+  await prefs.setString('theme_mode', themeString);
+}
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await loadThemeMode();
   ClipboardMonitor.instance.start();
   runApp(const ClipboardManagerApp());
 }
@@ -113,8 +141,10 @@ class _ClipboardHomePageState extends State<ClipboardHomePage> {
                   Icon(mode == ThemeMode.dark ? Icons.dark_mode : Icons.light_mode),
                   Switch(
                     value: mode == ThemeMode.dark,
-                    onChanged: (val) {
-                      themeNotifier.value = val ? ThemeMode.dark : ThemeMode.light;
+                    onChanged: (val) async {
+                      final newMode = val ? ThemeMode.dark : ThemeMode.light;
+                      themeNotifier.value = newMode;
+                      await saveThemeMode(newMode);
                     },
                   ),
                 ],
