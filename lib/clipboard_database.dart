@@ -94,6 +94,11 @@ class ClipboardDatabase {
     return result.map((map) => ClipboardEntry.fromMap(map)).toList();
   }
 
+  Future<void> clearAllEntries() async {
+    final db = await instance.database;
+    await db.delete('clipboard_entries');
+  }
+
   Future close() async {
     final db = await instance.database;
     db.close();

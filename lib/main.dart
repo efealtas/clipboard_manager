@@ -133,6 +133,36 @@ class _ClipboardHomePageState extends State<ClipboardHomePage> {
         title: const Text('Clipboard Manager'),
         centerTitle: true,
         actions: [
+          IconButton(
+            icon: const Icon(Icons.delete_sweep),
+            tooltip: 'Clear All History',
+            onPressed: () async {
+              final confirm = await showDialog<bool>(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('Clear All History'),
+                  content: const Text('Are you sure you want to delete all clipboard history?'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(false),
+                      child: const Text('Cancel'),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(true),
+                      child: const Text('Clear'),
+                    ),
+                  ],
+                ),
+              );
+              if (confirm == true) {
+                await ClipboardDatabase.instance.clearAllEntries();
+                _loadEntries();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('All clipboard history cleared.')),
+                );
+              }
+            },
+          ),
           ValueListenableBuilder<ThemeMode>(
             valueListenable: themeNotifier,
             builder: (context, mode, _) {
