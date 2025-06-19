@@ -18,9 +18,15 @@ An offline, cross-platform clipboard manager desktop app built with Flutter Desk
 
 ## Screenshots
 
-_Add screenshots here showing light and dark mode UI, search, and tagging features._
+### Dark Mode
+![dark mode]('/Users/efealtas/Desktop/Screenshot 2025-06-19 at 2.40.07 PM.png')
 
-![Screenshot 2025-06-19 at 2.36.11 PM.png](../../../../var/folders/fr/rh9yy3wn0vl7tt565qrbh2180000gn/T/TemporaryItems/NSIRD_screencaptureui_EEuaih/Screenshot%202025-06-19%20at%202.36.11%E2%80%AFPM.png)
+### Light Mode
+
+![light mode]('/Users/efealtas/Desktop/Screenshot 2025-06-19 at 2.41.22 PM.png')
+
+### Search Feature
+![search]('/Users/efealtas/Desktop/Screenshot 2025-06-19 at 2.41.53 PM.png')
 
 ### How It Works
 
