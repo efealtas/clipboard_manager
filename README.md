@@ -8,25 +8,20 @@ An offline, cross-platform clipboard manager desktop app built with Flutter Desk
 
 - **Clipboard History Tracking:** Automatically records every copied text entry.
 - **Searchable History:** Quickly find previous clipboard items with fuzzy search.
-- **Tagging & Pinning:** Organize clipboard entries with tags and pin favorites to avoid deletion.
 - **Persistent Local Storage:** All clipboard data is saved locally in a SQLite database for offline access.
 - **Theme Switcher:** Toggle between dark and light mode with your preference saved and applied on app launch.
-- **Auto Cleanup:** Optional removal of old clipboard entries after a configurable period.
-- **System Tray Support:** Minimize app to system tray and access it quickly with a hotkey.
-
----
 
 ## Screenshots
 
 ### Dark Mode
-![dark mode]('/Users/efealtas/Desktop/Screenshot 2025-06-19 at 2.40.07 PM.png')
+![dark mode](screenshots/darkMode.png)
 
 ### Light Mode
 
-![light mode]('/Users/efealtas/Desktop/Screenshot 2025-06-19 at 2.41.22 PM.png')
+![light mode](screenshots/lightMode.png)
 
 ### Search Feature
-![search]('/Users/efealtas/Desktop/Screenshot 2025-06-19 at 2.41.53 PM.png')
+![search](screenshots/searchFeature.png)
 
 ### How It Works
 
